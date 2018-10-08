@@ -12,3 +12,11 @@ return
 ^!Left::
 Send, {Ctrl Down}{LWin Down}{Left Down}{Left Up}{LWin Up}{Ctrl Up}
 return
+
+; Map Win+Space to play/pause only on VLC
+#space::
+IfWinNotExist ahk_exe vlc.exe
+    return
+; Otherwise, the above has set the "last found" window for use below.
+ControlSend, ahk_parent, {space}  ; Pause/Unpause
+return
